@@ -9,10 +9,10 @@ from bokeh.models.widgets import PreText, Select
 from bokeh.embed import components
 
 # --- Set up Flask ---
-appclone  = Flask(__name__)
-appclone.vars={}
+app  = Flask(__name__)
+app.vars={}
 
-@appclone.route('/index', methods=['GET','POST'])
+@app.route('/index', methods=['GET','POST'])
 def index():
     if request.method == 'GET':
 	#provide index with input form
@@ -22,7 +22,7 @@ def index():
 	appclone.vars['tickerinput'] = request.form['tickersym']
 	return redirect('/graph')
 
-@appclone.route('/graph')
+@app.route('/graph')
 def graph():
     if request.method == 'GET':
 	return redirect('/index')
@@ -51,4 +51,4 @@ def graph():
 
 
 if __name__ == '__main__':
-  appclone.run(host='0.0.0.0')
+  app.run(host='0.0.0.0')
