@@ -43,9 +43,9 @@ def graph():
         p.line(x=data['date'], y=data['open'], color='lightblue', line_dash='dashed', legend='Opening Price')
 	p.line(x=data['date'], y=data['close'], color='darkblue', legend='Closing Price')
 	script, div = components(p)
-	    return render_template('graph.html', script=script, div=div)
+	return render_template('graph.html', script=script, div=div)
      else: 
-     return redirect('/index.html')
+        return redirect('/index.html')
 
 
 if __name__ == '__main__':
