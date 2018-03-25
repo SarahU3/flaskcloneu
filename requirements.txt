@@ -1,3 +1,8 @@
 gunicorn==19.7.1
 requests==2.18.4
 monthdelta==1.0b
+Flask==0.10.1
+pandas==0.20.1
+bokeh==0.12.4
+Jinja2==2.9.6
+
