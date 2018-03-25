@@ -20,7 +20,7 @@ def index():
     else:
 	#request was POST, provide graph
 	appclone.vars['tickerinput'] = request.form['tickersym']
-	return redirect('/graph')
+    return redirect('/graph')
 
 @app.route('/graph')
 def graph():
@@ -45,7 +45,7 @@ def graph():
 	script, div = components(p)
 	    return render_template('graph.html', script=script, div=div)
      else: 
-	return redirect('/index.html')
+     return redirect('/index.html')
 
 
 if __name__ == '__main__':
