@@ -13,6 +13,7 @@ from bokeh.embed import components
 app  = Flask(__name__)
 app.debug = True
 app.vars={}
+app_key = 'QUANDL_KEY'
 
 @app.route('/')
 def main():
