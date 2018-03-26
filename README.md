@@ -27,11 +27,6 @@ A [finished example](https://lemurian.herokuapp.com) that demonstrates some basi
 - You should be able to see your site at `https://<app_name>.herokuapp.com`
 - A useful reference is the Heroku [quickstart guide](https://devcenter.heroku.com/articles/getting-started-with-python-o).
 
-[x] Clone the repository
-[x] Create heroku app (App name:*afternoon-lowlands-71865*
-[ ] Deploy to Heroku
-[ ] Visible on Heroku?
-
 ## Step 2: Get data from API and put it in pandas
 - Use the `requests` library to grab some data from a public API. This will
   often be in JSON format, in which case `simplejson` will be useful.
@@ -44,3 +39,7 @@ A [finished example](https://lemurian.herokuapp.com) that demonstrates some basi
   and [examples](https://github.com/bokeh/bokeh/tree/master/examples/embed).
 - Make the plot visible on your website through embedded HTML or other methods - this is where Flask comes in to manage the interactivity and display the desired content.
 - Some good references for Flask: [This article](https://realpython.com/blog/python/python-web-applications-with-flask-part-i/), especially the links in "Starting off", and [this tutorial](https://github.com/bev-a-tron/MyFlaskTutorial).
+
+
+## Resulting app
+https://stockpricegraphs.herokuapp.com/
