@@ -41,7 +41,7 @@ def graph():
     data = pd.DataFrame((r.json()['datatable']['data']), columns=cols)
     data['date'] = pd.to_datetime(data['date'])
     # --- Create graph ---
-    p = figure(plot_width=450, plot_height=400, x_axis_type='datetime')
+    p = figure(plot_width=500, plot_height=400, x_axis_type='datetime')
     p.line(x=data['date'], y=data['open'], color='lightblue', line_dash='dashed', legend='Opening Price')
     p.line(x=data['date'], y=data['close'], color='darkblue', legend='Closing Price')
     p.xaxis.axis_label = 'Date'
