@@ -1,8 +1,7 @@
 from flask import Flask, render_template, request, redirect
-from datetime import date
+from datetime import date, timedelta
 import os
 import requests
-import monthdelta
 import pandas as pd
 import numpy as np
 from bokeh.plotting import figure
@@ -33,7 +32,7 @@ def index():
 def graph():
     # --- Get Quandl data ---
     # get date of one month ago
-    t1 = str(date.today() - monthdelta.monthdelta(1))
+    t1 = str(date.today() - timedelta(30))
     # request data from quandl using ticker input and date
     url = "https://www.quandl.com/api/v3/datatables/WIKI/PRICES.json?ticker=%s&date.gte=%s&api_key=GcfBWgKuFpThaJ4uyNh2" % (app.vars['tickerinput'], t1)
     r = requests.get(url)
