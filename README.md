@@ -27,11 +27,6 @@ A [finished example](https://lemurian.herokuapp.com) that demonstrates some basi
 - You should be able to see your site at `https://<app_name>.herokuapp.com`
 - A useful reference is the Heroku [quickstart guide](https://devcenter.heroku.com/articles/getting-started-with-python-o).
 
-[x] Clone the repository
-[x] Create heroku app (App name:*afternoon-lowlands-71865*
-[ ] Deploy to Heroku
-[ ] Visible on Heroku?
-
 ## Step 2: Get data from API and put it in pandas
 - Use the `requests` library to grab some data from a public API. This will
   often be in JSON format, in which case `simplejson` will be useful.
