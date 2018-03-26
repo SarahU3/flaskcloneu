@@ -12,6 +12,7 @@ from bokeh.embed import components
 
 # --- Set up Flask ---
 app  = Flask(__name__)
+app.debug = True
 app.vars={}
 
 @app.route('/')
