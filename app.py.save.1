@@ -30,25 +30,23 @@ def index():
 @app.route('/graph')
 def graph():
     # --- Get Quandl data ---
-    # get date of one month ago
+    # get date of one month agoa
     t1 = str(date.today() - monthdelta.monthdelta(1))
     # request data from quandl using ticker input and date
-    url = "https://www.quandl.com/api/v3/datatables/WIKI/PRICES.json?ticker=%s&date.gte=%s&api_key=GcfBWgKuFpThaJ4uyNh2" % (app.vars['tickerinput'], t1)
+    url = "https://www.quandl.com/api/v3/datatables/WIKI/PRICES.json?ticker=%s&date.gte=%s&api_key=GcfBWgKuFpThaJ4uyNh2" % (app.vars['tickerinput'],t1)
     r = requests.get(url)
     #create dataframe in pandas
     cols = [x["name"] for x in (r.json()['datatable']['columns'])]
-    data = pd.DataFrame((r.json()['datatable']['data']), columns=cols)
-    data['date'] = pd.to_datetime(data['date'])
+    data = pd.DataFrame((r.json()['datatable']['data']), columns=cols
     # --- Create graph ---
-    p = figure(plot_width=450, plot_height=400, x_axis_type='datetime')
-    p.line(x=data['date'], y=data['open'], color='lightblue', line_dash='dashed', legend='Opening Price')
-    p.line(x=data['date'], y=data['close'], color='darkblue', legend='Closing Price')
+    p = figure(plot_width=800, plot_height=400, x_axis_type="datetime")
     p.xaxis.axis_label = 'Date'
     p.yaxis.axis_label = 'Price'
+    p.line(x=data['date'], y=data['open'], color='lightblue', line_dash='dashed', legend='Opening Price')
+    p.line(x=data['date'], y=data['close'], color='darkblue', legend='Closing Price')
     script, div = components(p)
-    return render_template('graph.html', script=script, div=div, tickersym=app.vars['tickerinput'])
+    return render_template('graph.html', script=script, div=div)
     
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
+  app.run(host='0.0.0.0', debug=True)
