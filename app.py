@@ -13,7 +13,7 @@ from bokeh.embed import components
 app  = Flask(__name__)
 app.debug = True
 app.vars={}
-app_key = 'QUANDL_KEY'
+api_key = os.environ.get('QUANDL_KEY')
 
 @app.route('/')
 def main():
@@ -35,7 +35,7 @@ def graph():
     # get date of one month ago
     t1 = str(date.today() - timedelta(30))
     # request data from quandl using ticker input and date
-    url = "https://www.quandl.com/api/v3/datatables/WIKI/PRICES.json?ticker=%s&date.gte=%s&api_key=GcfBWgKuFpThaJ4uyNh2" % (app.vars['tickerinput'], t1)
+    url = "https://www.quandl.com/api/v3/datatables/WIKI/PRICES.json?ticker=%s&date.gte=%s&api_key=%s" % (app.vars['tickerinput'], t1, api_key)
     r = requests.get(url)
     #create dataframe in pandas
     cols = [x["name"] for x in (r.json()['datatable']['columns'])]
